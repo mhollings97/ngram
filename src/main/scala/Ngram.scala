@@ -1,4 +1,5 @@
 import scala.io.Source
+import scala.collection.mutable.ListBuffer
 object Ngram {
 
   def main(args:Array[String]): Unit = {
@@ -11,25 +12,31 @@ object Ngram {
 	var lineCount = 0
 	var curLine = ""	
 	var len = 256
-	//An array of sentences (Aka an Array of Strings)
-	var tokenStrings = new Array[Array[String]](len)
-	//
+	//tokenMatrix - An Array of Strings Arrays
+	var tokenMatrix = new Array[Array[String]](len)
+	//curline - A String retrieved from the imported file
 	for(curLine <- Source.fromFile(testFile).getLines){
-	  tokenStrings(lineCount) = curLine.split(" ")
+	  //Tokenizing the lines and storing them as they are read in
+	  tokenMatrix(lineCount) = curLine.split(" ")
 	  lineCount = lineCount + 1
 	}
+
+	//Text File has been translated into a 2D array of Strings
+
+	val tokenList = new ListBuffer[String]()
 
 	val noNoChars = "?,.;-':()`"
 
 	var i = 0
 	var j = 0;
 	for(i <- 0 to lineCount-1) {
-		for(j <- 0 to tokenStrings(i).size-1){
-			tokenStrings(i)(j)=tokenStrings(i)(j).filter(char => !(noNoChars.contains(char) || char == '\\' || char =='/))
-			print(tokenStrings(i)(j))
-			print(" ")
+		for(j <- 0 to tokenMatrix(i).size-1){
+			//iterating over every single word in the matrix them doing final translation
+			tokenList+=tokenMatrix(i)(j).filter(char => !(noNoChars.contains(char) || char == "\\" || char =="/"))
 		}
-		println("")
 	}
+ 
+	tokenList.foreach(token => println(token))
+ 
  }
 } 
