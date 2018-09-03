@@ -1,0 +1,9 @@
+Hello man this is a simple text file.
+This would be really cool if I could find a way
+to make sure that this test file isn't just a bunch
+of malarchy that is not really relevent.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo sed 
+egestas egestas fringilla phasellus faucibus scelerisque. Cursus risus at ultrices mi tempus imperdiet nulla. Dui id ornare arcu odio 
+ut sem nulla. Bibendum neque egestas congue quisque egestas diam in arcu. Convallis aenean et tortor at risus viverra. Egestas diam in 
+arcu cursus euismod quis viverra. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc. Sodales neque sodales ut etiam sit 
+amet nisl purus in. Tincidunt id aliquet risus feugiat in ante metus dictum at.
