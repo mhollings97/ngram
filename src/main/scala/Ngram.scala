@@ -1,5 +1,6 @@
 import scala.io.Source
 import scala.collection.mutable.ListBuffer
+
 object Ngram {
 
   def main(args:Array[String]): Unit = {
@@ -17,7 +18,7 @@ object Ngram {
 	//curline - A String retrieved from the imported file
 	for(curLine <- Source.fromFile(testFile).getLines){
 	  //Tokenizing the lines and storing them as they are read in
-	  tokenMatrix(lineCount) = curLine.split(" ")
+	  tokenMatrix(lineCount) = curLine.toLowerCase.split(" ")
 	  lineCount = lineCount + 1
 	}
 
@@ -35,8 +36,44 @@ object Ngram {
 			tokenList+=tokenMatrix(i)(j).filter(char => !(noNoChars.contains(char) || char == "\\" || char =="/"))
 		}
 	}
- 
-	tokenList.foreach(token => println(token))
- 
+
+//This creates a List of all tuples in the input text
+	var pairCounts = new ListBuffer[Tuple2[String,String]]()
+	
+	var lastWord = "FIRST"
+	tokenList.foreach(token => {
+		if(lastWord=="FIRST") { 
+		  lastWord = token
+		}else {
+		  pairCounts+=Tuple2(lastWord,token)
+		  lastWord = token
+		}
+
+	})
+
+	pairCounts.foreach(tuple => println(tuple.toString))
+//pairCounts is a list of all tuples in the Text
+
+	var UniqueTuples = new ListBuffer[Tuple2[String,String]]()
+	var wordCount = new ListBuffer[Int]()
+	var index = 0
+	pairCounts.foreach(tuple => {
+
+		index = UniqueTuples.indexOf(tuple)
+
+		if(index == -1){
+			UniqueTuples+=tuple
+			wordCount+=1
+		}else{
+			wordCount(index)= wordCount(index) + 1
+		}
+	})
+
+	var count = 0
+	UniqueTuples.foreach(tuple => {
+		println(tuple.toString + " " + wordCount(count))
+		count = count + 1
+	})
+
  }
 } 

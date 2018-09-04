@@ -1,0 +1,7 @@
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Mike\Desktop\CSE-262\ngram\ngram\src\main\scala\Ngram.scala:36:83: comparing values of types Char and String using `==' will always yield false[0m
+[0m[[0m[33mwarn[0m] [0m[0m			tokenList+=tokenMatrix(i)(j).filter(char => !(noNoChars.contains(char) || char == "\\" || char =="/"))[0m
+[0m[[0m[33mwarn[0m] [0m[0m			                                                                               ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Mike\Desktop\CSE-262\ngram\ngram\src\main\scala\Ngram.scala:36:99: comparing values of types Char and String using `==' will always yield false[0m
+[0m[[0m[33mwarn[0m] [0m[0m			tokenList+=tokenMatrix(i)(j).filter(char => !(noNoChars.contains(char) || char == "\\" || char =="/"))[0m
+[0m[[0m[33mwarn[0m] [0m[0m			                                                                                               ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m
